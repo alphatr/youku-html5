@@ -1,24 +1,36 @@
 /* global chrome */
-var siteList = ["youku", "sohu", "letv"],
+var siteList = ["youku", "sohu", "letv", "tudou"],
     site = (location.href.match(/(.+\.)?([\w\d-]+)\.\w+\//i))[2],
-    loader = function (src) {
+    loader = function (src, isInline) {
         var script = document.createElement('script');
+
+        src = src.replace(/\"/g, '\\"');
+        if (!isInline) {
+            src = 'res.src = "' + src + '";';
+        } else {
+            src = 'res.innerText = "' + src + '";';
+        }
+
         script.innerHTML = [
             '(function () {',
             'var res = document.createElement("script");',
-            'res.src = "' + src + '";',
+            src,
             'document.getElementsByTagName(\'head\')[0].appendChild(res);',
             '}());'
         ].join('\n');
+
         $('head').append($(script));
     },
+
     init = function () {
+        var getURL = chrome.runtime.getURL;
         if (location.href.indexOf('flash=1') > -1) {
             return;
         }
 
         if (site && ("|" + (siteList.join("|")) + "|").indexOf("|" + site + "|") > -1) {
-            loader(chrome.runtime.getURL('inc/' + site + '.js'));
+            loader(getURL('inc/init.js'));
+            setTimeout(loader, 200, getURL('site/' + site + '.js'));
         }
     };
 init();
