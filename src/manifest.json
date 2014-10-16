@@ -15,5 +15,5 @@
             "all_frames": true
         }
     ],
-    "web_accessible_resources": ["inc/init.js", "site/*.js"]
+    "web_accessible_resources": ["inc/init.js", "site/*.js", "player.css", "player.js"]
 }

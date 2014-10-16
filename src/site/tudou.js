@@ -49,5 +49,7 @@ alphaDefine("tudou", function (callback, _) {
             }
         };
         _.canPlayM3U8 ? m3u8(callback) : mp4(callback);
-    }, "tudouHomePlayer"]);
+    }, "tudouHomePlayer", {
+        height: -55
+    }]);
 });

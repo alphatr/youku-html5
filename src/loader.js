@@ -1,5 +1,5 @@
 /* global chrome */
-var siteList = ["youku", "sohu", "letv", "tudou"],
+var siteList = ["youku", "sohu", "letv", "tudou", "qq", "iqiyi"],
     site = (location.href.match(/(.+\.)?([\w\d-]+)\.\w+\//i))[2],
     loader = function (src, isInline) {
         var script = document.createElement('script');
