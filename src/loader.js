@@ -1,6 +1,12 @@
 /* global chrome */
 var siteList = ["youku", "sohu", "letv", "tudou", "qq", "iqiyi"],
-    site = (location.href.match(/(.+\.)?([\w\d-]+)\.\w+\//i))[2],
+    site = (function () {
+        var matchs = location.href.match(/(.+\.)?([\w\d-]+)\.\w+\//i);
+        if (matchs && matchs[2]) {
+            return matchs[2];
+        }
+    }()),
+
     loader = function (src, isInline) {
         var script = document.createElement('script');
 
@@ -28,7 +34,7 @@ var siteList = ["youku", "sohu", "letv", "tudou", "qq", "iqiyi"],
             return;
         }
 
-        if (site && ("|" + (siteList.join("|")) + "|").indexOf("|" + site + "|") > -1) {
+        if (site && $.inArray(site, siteList) > -1) {
             loader(getURL('inc/init.js'));
             setTimeout(loader, 200, getURL('site/' + site + '.js'));
         }

@@ -1,5 +1,4 @@
 alphaDefine("iqiyi", function (callback, _) {
-    console.log("iqiyi---------------------");
     callback([function (callback) {
         _.jsonp("http://passport.iqiyi.com/apis/user/info.action", {
             qyid: _.cookie("QC006")
