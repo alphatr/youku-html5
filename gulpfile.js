@@ -28,6 +28,6 @@ gulp.task('copy', function () {
 /* 打包压缩 */
 gulp.task('package', ['minify', 'copy'], function () {
     return gulp.src('build/**')
-        .pipe(zip('build.zip'))
+        .pipe(zip('youku-html5-chrome.zip'))
         .pipe(gulp.dest('./'));
 });
