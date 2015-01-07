@@ -1,0 +1,27 @@
+{
+  "name": "youku-html5",
+  "version": "2.2.1",
+  "description": "替换优酷等播放器为 HTML5 播放器",
+  "author": {
+    "name": "AlphaTr",
+    "email": "trefoiles@gmail.com",
+    "url": "https://blog.alphatr.com/"
+  },
+  "keywords": [
+    "chrome extension",
+    "html5player",
+    "youku"
+  ],
+  "homepage": "https://github.com/AlphaTr/youku-html5",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AlphaTr/youku-html5.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-minify-css": "^0.3.11",
+    "gulp-uglify": "^1.0.1",
+    "gulp-zip": "^2.0.2"
+  }
+}
